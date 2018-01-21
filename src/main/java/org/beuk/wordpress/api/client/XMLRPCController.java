@@ -35,7 +35,6 @@ public class XMLRPCController {
 			controller.savePage("hello xmlrpc world", "hello xmlrpc world".replace(' ', '-'), "en dan is dit de content", -1, -1, cats);
 
 			// controller.getPage(4);
-
 			// controller.savePage();
 
 		} catch (final XmlRpcException | MalformedURLException e) {
@@ -44,8 +43,7 @@ public class XMLRPCController {
 
 	}
 
-	Logger log = LoggerFactory.getLogger(XMLRPCController.class);
-
+	final Logger log = LoggerFactory.getLogger(XMLRPCController.class);
 	XmlRpcClient xmlRpcClient;
 	String serverURL = "http://localhost/wordpress/xmlrpc.php";
 	List<XMLPageSummary> allPages;
@@ -56,6 +54,7 @@ public class XMLRPCController {
 	}
 
 	public XMLRPCController(Configuration config) throws XmlRpcException, JsonParseException, JsonMappingException, IOException {
+
 		serverURL = config.getString("wp.xmlrpc.host");
 		username = config.getString("wp.username");
 		password = config.getString("wp.password");
